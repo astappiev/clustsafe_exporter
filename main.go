@@ -10,6 +10,7 @@ import (
 	"net/http"
 	"os"
 	"os/exec"
+	"strings"
 )
 
 var (
@@ -19,9 +20,7 @@ var (
 
 type Exporter struct {
 	clustsafeHost, clustsafeUser, clustsafePassword string
-	humidity                                        *prometheus.Desc
-	temperature                                     *prometheus.Desc
-	temperature1                                    *prometheus.Desc
+	humidity, temperature, temperature1             *prometheus.Desc
 }
 
 func ClustsafeExporter(clustsafeHost string, clustsafeUser string, clustsafePassword string) *Exporter {
@@ -30,9 +29,9 @@ func ClustsafeExporter(clustsafeHost string, clustsafeUser string, clustsafePass
 		clustsafeUser:     clustsafeUser,
 		clustsafePassword: clustsafePassword,
 
-		humidity:     prometheus.NewDesc("clustsafe_humidity", "Shows the current humidity in percentage, a normal value is up to 80", nil, nil),
-		temperature:  prometheus.NewDesc("clustsafe_temperature", "The current temperature in celsius, a normal value is up to 27", nil, nil),
-		temperature1: prometheus.NewDesc("clustsafe_temperature1", "The current temperature in celsius (on top of the rack), a normal value is up to 35", nil, nil),
+		humidity:     prometheus.NewDesc("clustsafe_humidity", "Shows the current humidity in percentage, a normal value is up to 80", []string{"host"}, nil),
+		temperature:  prometheus.NewDesc("clustsafe_temperature", "The current temperature in celsius, a normal value is up to 27", []string{"host"}, nil),
+		temperature1: prometheus.NewDesc("clustsafe_temperature1", "The current temperature in celsius (on top of the rack), a normal value is up to 35", []string{"host"}, nil),
 	}
 }
 
@@ -43,22 +42,27 @@ func (e *Exporter) Describe(ch chan<- *prometheus.Desc) {
 }
 
 func (e *Exporter) Collect(ch chan<- prometheus.Metric) {
-	out, err := exec.Command("clustsafeX", "--host", e.clustsafeHost, "--user", e.clustsafeUser, "--password", e.clustsafePassword, "-a", "-x", "sensors").Output()
+	hosts := strings.Split(e.clustsafeHost, ",")
 
-	if err != nil {
-		log.Fatal(err)
-	}
+	for h := 0; h < len(hosts); h++ {
+		out, err := exec.Command("clustsafeX", "--host", hosts[h],
+			"--user", e.clustsafeUser, "--password", e.clustsafePassword, "-a", "-x", "sensors").Output()
 
-	var response ClustsafeResponse
-	xml.Unmarshal(out, &response)
+		if err != nil {
+			log.Fatal(err)
+		}
 
-	for i := 0; i < len(response.Sensors); i++ {
-		if response.Sensors[i].Type == "humidity" {
-			ch <- prometheus.MustNewConstMetric(e.humidity, prometheus.CounterValue, float64(response.Sensors[i].Value))
-		} else if response.Sensors[i].Type == "temperature" {
-			ch <- prometheus.MustNewConstMetric(e.temperature, prometheus.CounterValue, float64(response.Sensors[i].Value))
-		} else if response.Sensors[i].Type == "dallas" && response.Sensors[i].Id == 1 {
-			ch <- prometheus.MustNewConstMetric(e.temperature1, prometheus.CounterValue, float64(response.Sensors[i].Value))
+		var response ClustsafeResponse
+		xml.Unmarshal(out, &response)
+
+		for i := 0; i < len(response.Sensors); i++ {
+			if response.Sensors[i].Type == "humidity" {
+				ch <- prometheus.MustNewConstMetric(e.humidity, prometheus.CounterValue, float64(response.Sensors[i].Value), hosts[h])
+			} else if response.Sensors[i].Type == "temperature" {
+				ch <- prometheus.MustNewConstMetric(e.temperature, prometheus.CounterValue, float64(response.Sensors[i].Value), hosts[h])
+			} else if response.Sensors[i].Type == "dallas" && response.Sensors[i].Id == 1 {
+				ch <- prometheus.MustNewConstMetric(e.temperature1, prometheus.CounterValue, float64(response.Sensors[i].Value), hosts[h])
+			}
 		}
 	}
 }
@@ -79,14 +83,14 @@ type Sensor struct {
 func main() {
 	flag.Parse()
 
-	err := godotenv.Load()
-	if err != nil {
-		log.Println("Error loading .env file, assume env variables are set.")
-	}
-
+	godotenv.Load()
 	clustsafeHost := os.Getenv("CLUSTSAFE_HOST")
 	clustsafeUser := os.Getenv("CLUSTSAFE_USER")
 	clustsafePassword := os.Getenv("CLUSTSAFE_PASSWORD")
+
+	if len(clustsafeHost) == 0 {
+		log.Println("No host given! Check env variables.")
+	}
 
 	exporter := ClustsafeExporter(clustsafeHost, clustsafeUser, clustsafePassword)
 	prometheus.MustRegister(exporter)
