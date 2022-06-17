@@ -18,7 +18,7 @@ var (
 var (
 	listenAddress    = flag.String("web.listen-address", ":9879", "Address to listen on for telemetry")
 	metricsPath      = flag.String("web.telemetry-path", "/metrics", "Path under which to expose metrics")
-	clustsafePath    = flag.String("clustsafe.path", "cw-clustsafe", "Path to the ClustSafe executable")
+	clustsafePath    = flag.String("clustsafe.path", "cw-clustsafe", "The ClustSafe command to use")
 	clustsafeCommand = flag.String("clustsafe.command", "all", "The command to execute, can be `clustsafes`, `sensors` or `all`")
 )
 
