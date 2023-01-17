@@ -31,8 +31,7 @@ func remoteHandler(config CollectorConfig) http.HandlerFunc {
 		}
 
 		registry := prometheus.NewRegistry()
-		remoteCollector := ClustsafeCollector(target, config)
-		registry.MustRegister(remoteCollector)
+		registry.MustRegister(ClustsafeCollector(target, config))
 		h := promhttp.HandlerFor(registry, promhttp.HandlerOpts{})
 		h.ServeHTTP(w, r)
 	}

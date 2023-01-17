@@ -2,6 +2,7 @@ package main
 
 import (
 	"encoding/xml"
+	"fmt"
 	"log"
 	"os/exec"
 
@@ -54,13 +55,19 @@ func (e *dataCollector) Collect(ch chan<- prometheus.Metric) {
 	).Output()
 
 	if err != nil {
-		log.Fatal(err)
+		err := fmt.Errorf("executing command error: %w", err)
+		ch <- prometheus.NewInvalidMetric(prometheus.NewInvalidDesc(err), nil)
+		log.Println(err)
+		return
 	}
 
 	var response ClustsafeResponse
 	err = xml.Unmarshal(out, &response)
 	if err != nil {
-		log.Fatal(err)
+		err := fmt.Errorf("parsing response error: %w\n\nresponse: %s", err, out)
+		ch <- prometheus.NewInvalidMetric(prometheus.NewInvalidDesc(err), nil)
+		log.Println(err)
+		return
 	}
 
 	for _, module := range response.Modules.Clustsafe {
