@@ -20,3 +20,17 @@ DOCKER_IMAGE_NAME ?= clustsafe-exporter
 DOCKER_REPO       ?= astappiev
 
 include Makefile.common
+
+crossbuild: promu
+	@echo ">> building crossbuild release"
+	@$(PROMU) crossbuild
+
+crossbuild-tarballs: promu
+	@echo ">> building crossbuild release tarballs"
+	@$(PROMU) crossbuild tarballs
+
+crossbuild-checksum: promu
+	@echo ">> calculating checksums for released packages"
+	@$(PROMU) checksum .tarballs
+
+crossbuild-release: promu crossbuild crossbuild-tarballs crossbuild-checksum
