@@ -1,0 +1,10 @@
+# HELP clustsafe_humidity The humidity in percentage.
+# TYPE clustsafe_humidity gauge
+clustsafe_humidity{sensor="humidity"} 64
+# HELP clustsafe_temperature The temperature in celsius.
+# TYPE clustsafe_temperature gauge
+clustsafe_temperature{sensor="dallas1"} 35
+clustsafe_temperature{sensor="temperature"} 19
+# HELP clustsafe_up Was the last scrape of ClustSafe successful.
+# TYPE clustsafe_up gauge
+clustsafe_up 1

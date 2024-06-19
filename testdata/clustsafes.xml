@@ -1,0 +1,845 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<clustsafeResponse>
+    <modules>
+        <clustsafe id="1">
+            <status>connected</status>
+            <power status="ok">
+                <voltage>0</voltage>
+                <current>4.03</current>
+                <frequency>0</frequency>
+                <realPower>872</realPower>
+                <apparentPower>936</apparentPower>
+                <powerFactor>0</powerFactor>
+                <phaseShift>0</phaseShift>
+                <samples>1</samples>
+            </power>
+            <outlets count="12">
+                <outlet id="1">
+                    <status process="none">on</status>
+                    <fuse>ok</fuse>
+                    <autopower>disabled</autopower>
+                    <alert>
+                        <procedure>off</procedure>
+                    </alert>
+                    <power status="ok">
+                        <voltage>231.6</voltage>
+                        <current>0</current>
+                        <frequency>50.1</frequency>
+                        <realPower>0</realPower>
+                        <apparentPower>0</apparentPower>
+                        <powerFactor>0</powerFactor>
+                        <phaseShift>0</phaseShift>
+                        <samples>344</samples>
+                    </power>
+                </outlet>
+                <outlet id="2">
+                    <status process="none">on</status>
+                    <fuse>ok</fuse>
+                    <autopower>disabled</autopower>
+                    <alert>
+                        <procedure>off</procedure>
+                    </alert>
+                    <power status="ok">
+                        <voltage>231.6</voltage>
+                        <current>0.333</current>
+                        <frequency>50.1</frequency>
+                        <realPower>70</realPower>
+                        <apparentPower>77</apparentPower>
+                        <powerFactor>0.91</powerFactor>
+                        <phaseShift>-20</phaseShift>
+                        <samples>344</samples>
+                    </power>
+                </outlet>
+                <outlet id="3">
+                    <status process="none">on</status>
+                    <fuse>ok</fuse>
+                    <autopower>disabled</autopower>
+                    <alert>
+                        <procedure>off</procedure>
+                    </alert>
+                    <power status="ok">
+                        <voltage>231.1</voltage>
+                        <current>0.548</current>
+                        <frequency>50.1</frequency>
+                        <realPower>120</realPower>
+                        <apparentPower>127</apparentPower>
+                        <powerFactor>0.94</powerFactor>
+                        <phaseShift>-29</phaseShift>
+                        <samples>342</samples>
+                    </power>
+                </outlet>
+                <outlet id="4">
+                    <status process="none">on</status>
+                    <fuse>ok</fuse>
+                    <autopower>disabled</autopower>
+                    <alert>
+                        <procedure>off</procedure>
+                    </alert>
+                    <power status="ok">
+                        <voltage>231.1</voltage>
+                        <current>0.466</current>
+                        <frequency>50.1</frequency>
+                        <realPower>102</realPower>
+                        <apparentPower>108</apparentPower>
+                        <powerFactor>0.94</powerFactor>
+                        <phaseShift>-31</phaseShift>
+                        <samples>342</samples>
+                    </power>
+                </outlet>
+                <outlet id="5">
+                    <status process="none">on</status>
+                    <fuse>ok</fuse>
+                    <autopower>disabled</autopower>
+                    <alert>
+                        <procedure>off</procedure>
+                    </alert>
+                    <power status="ok">
+                        <voltage>232.8</voltage>
+                        <current>0</current>
+                        <frequency>50.1</frequency>
+                        <realPower>0</realPower>
+                        <apparentPower>0</apparentPower>
+                        <powerFactor>0</powerFactor>
+                        <phaseShift>0</phaseShift>
+                        <samples>343</samples>
+                    </power>
+                </outlet>
+                <outlet id="6">
+                    <status process="none">on</status>
+                    <fuse>ok</fuse>
+                    <autopower>disabled</autopower>
+                    <alert>
+                        <procedure>off</procedure>
+                    </alert>
+                    <power status="ok">
+                        <voltage>232.8</voltage>
+                        <current>0.477</current>
+                        <frequency>50.1</frequency>
+                        <realPower>104</realPower>
+                        <apparentPower>111</apparentPower>
+                        <powerFactor>0.94</powerFactor>
+                        <phaseShift>-30</phaseShift>
+                        <samples>343</samples>
+                    </power>
+                </outlet>
+                <outlet id="7">
+                    <status process="none">on</status>
+                    <fuse>ok</fuse>
+                    <autopower>disabled</autopower>
+                    <alert>
+                        <procedure>off</procedure>
+                    </alert>
+                    <power status="ok">
+                        <voltage>232.4</voltage>
+                        <current>0.445</current>
+                        <frequency>50.1</frequency>
+                        <realPower>96</realPower>
+                        <apparentPower>103</apparentPower>
+                        <powerFactor>0.93</powerFactor>
+                        <phaseShift>-33</phaseShift>
+                        <samples>342</samples>
+                    </power>
+                </outlet>
+                <outlet id="8">
+                    <status process="none">on</status>
+                    <fuse>ok</fuse>
+                    <autopower>disabled</autopower>
+                    <alert>
+                        <procedure>off</procedure>
+                    </alert>
+                    <power status="ok">
+                        <voltage>232.4</voltage>
+                        <current>0</current>
+                        <frequency>50.1</frequency>
+                        <realPower>0</realPower>
+                        <apparentPower>0</apparentPower>
+                        <powerFactor>0</powerFactor>
+                        <phaseShift>0</phaseShift>
+                        <samples>342</samples>
+                    </power>
+                </outlet>
+                <outlet id="9">
+                    <status process="none">on</status>
+                    <fuse>ok</fuse>
+                    <autopower>disabled</autopower>
+                    <alert>
+                        <procedure>off</procedure>
+                    </alert>
+                    <power status="ok">
+                        <voltage>233</voltage>
+                        <current>0.488</current>
+                        <frequency>50</frequency>
+                        <realPower>106</realPower>
+                        <apparentPower>114</apparentPower>
+                        <powerFactor>0.93</powerFactor>
+                        <phaseShift>-34</phaseShift>
+                        <samples>344</samples>
+                    </power>
+                </outlet>
+                <outlet id="10">
+                    <status process="none">on</status>
+                    <fuse>ok</fuse>
+                    <autopower>disabled</autopower>
+                    <alert>
+                        <procedure>off</procedure>
+                    </alert>
+                    <power status="ok">
+                        <voltage>233</voltage>
+                        <current>0.381</current>
+                        <frequency>50</frequency>
+                        <realPower>81</realPower>
+                        <apparentPower>89</apparentPower>
+                        <powerFactor>0.91</powerFactor>
+                        <phaseShift>-34</phaseShift>
+                        <samples>344</samples>
+                    </power>
+                </outlet>
+                <outlet id="11">
+                    <status process="none">on</status>
+                    <fuse>ok</fuse>
+                    <autopower>disabled</autopower>
+                    <alert>
+                        <procedure>off</procedure>
+                    </alert>
+                    <power status="ok">
+                        <voltage>232.4</voltage>
+                        <current>0.457</current>
+                        <frequency>50.1</frequency>
+                        <realPower>101</realPower>
+                        <apparentPower>106</apparentPower>
+                        <powerFactor>0.95</powerFactor>
+                        <phaseShift>-22</phaseShift>
+                        <samples>342</samples>
+                    </power>
+                </outlet>
+                <outlet id="12">
+                    <status process="none">on</status>
+                    <fuse>ok</fuse>
+                    <autopower>disabled</autopower>
+                    <alert>
+                        <procedure>off</procedure>
+                    </alert>
+                    <power status="ok">
+                        <voltage>232.4</voltage>
+                        <current>0.435</current>
+                        <frequency>50.1</frequency>
+                        <realPower>92</realPower>
+                        <apparentPower>101</apparentPower>
+                        <powerFactor>0.91</powerFactor>
+                        <phaseShift>-36</phaseShift>
+                        <samples>342</samples>
+                    </power>
+                </outlet>
+            </outlets>
+            <lines count="3">
+                <line id="1">
+                    <status>connected</status>
+                    <identification>off</identification>
+                    <power status="ok">
+                        <voltage>231.3</voltage>
+                        <current>1.347</current>
+                        <frequency>50.1</frequency>
+                        <realPower>292</realPower>
+                        <apparentPower>312</apparentPower>
+                        <powerFactor>0</powerFactor>
+                        <phaseShift>0</phaseShift>
+                        <samples>1</samples>
+                    </power>
+                </line>
+                <line id="2">
+                    <status>connected</status>
+                    <identification>off</identification>
+                    <power status="ok">
+                        <voltage>232.6</voltage>
+                        <current>0.922</current>
+                        <frequency>50.1</frequency>
+                        <realPower>200</realPower>
+                        <apparentPower>214</apparentPower>
+                        <powerFactor>0</powerFactor>
+                        <phaseShift>0</phaseShift>
+                        <samples>1</samples>
+                    </power>
+                </line>
+                <line id="3">
+                    <status>connected</status>
+                    <identification>off</identification>
+                    <power status="ok">
+                        <voltage>232.7</voltage>
+                        <current>1.761</current>
+                        <frequency>50</frequency>
+                        <realPower>380</realPower>
+                        <apparentPower>410</apparentPower>
+                        <powerFactor>0</powerFactor>
+                        <phaseShift>0</phaseShift>
+                        <samples>1</samples>
+                    </power>
+                </line>
+            </lines>
+        </clustsafe>
+        <clustsafe id="2">
+            <status>connected</status>
+            <power status="ok">
+                <voltage>0</voltage>
+                <current>5.397</current>
+                <frequency>0</frequency>
+                <realPower>1187</realPower>
+                <apparentPower>1255</apparentPower>
+                <powerFactor>0</powerFactor>
+                <phaseShift>0</phaseShift>
+                <samples>1</samples>
+            </power>
+            <outlets count="12">
+                <outlet id="1">
+                    <status process="none">on</status>
+                    <fuse>ok</fuse>
+                    <autopower>disabled</autopower>
+                    <alert>
+                        <procedure>off</procedure>
+                    </alert>
+                    <power status="ok">
+                        <voltage>232.3</voltage>
+                        <current>0.989</current>
+                        <frequency>50.1</frequency>
+                        <realPower>223</realPower>
+                        <apparentPower>229</apparentPower>
+                        <powerFactor>0.97</powerFactor>
+                        <phaseShift>-15</phaseShift>
+                        <samples>347</samples>
+                    </power>
+                </outlet>
+                <outlet id="2">
+                    <status process="none">on</status>
+                    <fuse>ok</fuse>
+                    <autopower>disabled</autopower>
+                    <alert>
+                        <procedure>off</procedure>
+                    </alert>
+                    <power status="ok">
+                        <voltage>232.3</voltage>
+                        <current>0.547</current>
+                        <frequency>50.1</frequency>
+                        <realPower>122</realPower>
+                        <apparentPower>127</apparentPower>
+                        <powerFactor>0.96</powerFactor>
+                        <phaseShift>-25</phaseShift>
+                        <samples>347</samples>
+                    </power>
+                </outlet>
+                <outlet id="3">
+                    <status process="none">on</status>
+                    <fuse>ok</fuse>
+                    <autopower>disabled</autopower>
+                    <alert>
+                        <procedure>off</procedure>
+                    </alert>
+                    <power status="ok">
+                        <voltage>231.9</voltage>
+                        <current>0.541</current>
+                        <frequency>50.1</frequency>
+                        <realPower>120</realPower>
+                        <apparentPower>126</apparentPower>
+                        <powerFactor>0.95</powerFactor>
+                        <phaseShift>-25</phaseShift>
+                        <samples>345</samples>
+                    </power>
+                </outlet>
+                <outlet id="4">
+                    <status process="none">on</status>
+                    <fuse>ok</fuse>
+                    <autopower>disabled</autopower>
+                    <alert>
+                        <procedure>off</procedure>
+                    </alert>
+                    <power status="ok">
+                        <voltage>231.9</voltage>
+                        <current>0.466</current>
+                        <frequency>50.1</frequency>
+                        <realPower>99</realPower>
+                        <apparentPower>108</apparentPower>
+                        <powerFactor>0.92</powerFactor>
+                        <phaseShift>-36</phaseShift>
+                        <samples>345</samples>
+                    </power>
+                </outlet>
+                <outlet id="5">
+                    <status process="none">on</status>
+                    <fuse>ok</fuse>
+                    <autopower>disabled</autopower>
+                    <alert>
+                        <procedure>off</procedure>
+                    </alert>
+                    <power status="ok">
+                        <voltage>232.5</voltage>
+                        <current>0</current>
+                        <frequency>50.1</frequency>
+                        <realPower>0</realPower>
+                        <apparentPower>0</apparentPower>
+                        <powerFactor>0</powerFactor>
+                        <phaseShift>0</phaseShift>
+                        <samples>342</samples>
+                    </power>
+                </outlet>
+                <outlet id="6">
+                    <status process="none">on</status>
+                    <fuse>ok</fuse>
+                    <autopower>disabled</autopower>
+                    <alert>
+                        <procedure>off</procedure>
+                    </alert>
+                    <power status="ok">
+                        <voltage>232.5</voltage>
+                        <current>0.469</current>
+                        <frequency>50.1</frequency>
+                        <realPower>102</realPower>
+                        <apparentPower>109</apparentPower>
+                        <powerFactor>0.94</powerFactor>
+                        <phaseShift>-34</phaseShift>
+                        <samples>342</samples>
+                    </power>
+                </outlet>
+                <outlet id="7">
+                    <status process="none">on</status>
+                    <fuse>ok</fuse>
+                    <autopower>disabled</autopower>
+                    <alert>
+                        <procedure>off</procedure>
+                    </alert>
+                    <power status="ok">
+                        <voltage>232.5</voltage>
+                        <current>0.513</current>
+                        <frequency>50.1</frequency>
+                        <realPower>114</realPower>
+                        <apparentPower>120</apparentPower>
+                        <powerFactor>0.95</powerFactor>
+                        <phaseShift>-24</phaseShift>
+                        <samples>340</samples>
+                    </power>
+                </outlet>
+                <outlet id="8">
+                    <status process="none">on</status>
+                    <fuse>ok</fuse>
+                    <autopower>disabled</autopower>
+                    <alert>
+                        <procedure>off</procedure>
+                    </alert>
+                    <power status="ok">
+                        <voltage>232.5</voltage>
+                        <current>0</current>
+                        <frequency>50.1</frequency>
+                        <realPower>0</realPower>
+                        <apparentPower>0</apparentPower>
+                        <powerFactor>0</powerFactor>
+                        <phaseShift>0</phaseShift>
+                        <samples>340</samples>
+                    </power>
+                </outlet>
+                <outlet id="9">
+                    <status process="none">on</status>
+                    <fuse>ok</fuse>
+                    <autopower>disabled</autopower>
+                    <alert>
+                        <procedure>off</procedure>
+                    </alert>
+                    <power status="ok">
+                        <voltage>233.4</voltage>
+                        <current>0.447</current>
+                        <frequency>50.1</frequency>
+                        <realPower>96</realPower>
+                        <apparentPower>104</apparentPower>
+                        <powerFactor>0.92</powerFactor>
+                        <phaseShift>-35</phaseShift>
+                        <samples>339</samples>
+                    </power>
+                </outlet>
+                <outlet id="10">
+                    <status process="none">on</status>
+                    <fuse>ok</fuse>
+                    <autopower>disabled</autopower>
+                    <alert>
+                        <procedure>off</procedure>
+                    </alert>
+                    <power status="ok">
+                        <voltage>233.4</voltage>
+                        <current>0.481</current>
+                        <frequency>50.1</frequency>
+                        <realPower>107</realPower>
+                        <apparentPower>112</apparentPower>
+                        <powerFactor>0.96</powerFactor>
+                        <phaseShift>-29</phaseShift>
+                        <samples>339</samples>
+                    </power>
+                </outlet>
+                <outlet id="11">
+                    <status process="none">on</status>
+                    <fuse>ok</fuse>
+                    <autopower>disabled</autopower>
+                    <alert>
+                        <procedure>off</procedure>
+                    </alert>
+                    <power status="ok">
+                        <voltage>233</voltage>
+                        <current>0.475</current>
+                        <frequency>50.1</frequency>
+                        <realPower>102</realPower>
+                        <apparentPower>111</apparentPower>
+                        <powerFactor>0.92</powerFactor>
+                        <phaseShift>-35</phaseShift>
+                        <samples>337</samples>
+                    </power>
+                </outlet>
+                <outlet id="12">
+                    <status process="none">on</status>
+                    <fuse>ok</fuse>
+                    <autopower>disabled</autopower>
+                    <alert>
+                        <procedure>off</procedure>
+                    </alert>
+                    <power status="ok">
+                        <voltage>233</voltage>
+                        <current>0.469</current>
+                        <frequency>50.1</frequency>
+                        <realPower>102</realPower>
+                        <apparentPower>109</apparentPower>
+                        <powerFactor>0.94</powerFactor>
+                        <phaseShift>-32</phaseShift>
+                        <samples>337</samples>
+                    </power>
+                </outlet>
+            </outlets>
+            <lines count="3">
+                <line id="1">
+                    <status>connected</status>
+                    <identification>off</identification>
+                    <power status="ok">
+                        <voltage>232.1</voltage>
+                        <current>2.543</current>
+                        <frequency>50.1</frequency>
+                        <realPower>564</realPower>
+                        <apparentPower>590</apparentPower>
+                        <powerFactor>0</powerFactor>
+                        <phaseShift>0</phaseShift>
+                        <samples>1</samples>
+                    </power>
+                </line>
+                <line id="2">
+                    <status>connected</status>
+                    <identification>off</identification>
+                    <power status="ok">
+                        <voltage>232.5</voltage>
+                        <current>0.982</current>
+                        <frequency>50.1</frequency>
+                        <realPower>216</realPower>
+                        <apparentPower>229</apparentPower>
+                        <powerFactor>0</powerFactor>
+                        <phaseShift>0</phaseShift>
+                        <samples>1</samples>
+                    </power>
+                </line>
+                <line id="3">
+                    <status>connected</status>
+                    <identification>off</identification>
+                    <power status="ok">
+                        <voltage>233.2</voltage>
+                        <current>1.872</current>
+                        <frequency>50.1</frequency>
+                        <realPower>407</realPower>
+                        <apparentPower>436</apparentPower>
+                        <powerFactor>0</powerFactor>
+                        <phaseShift>0</phaseShift>
+                        <samples>1</samples>
+                    </power>
+                </line>
+            </lines>
+        </clustsafe>
+        <clustsafe id="3">
+            <status>connected</status>
+            <power status="ok">
+                <voltage>0</voltage>
+                <current>5.008</current>
+                <frequency>0</frequency>
+                <realPower>1085</realPower>
+                <apparentPower>1162</apparentPower>
+                <powerFactor>0</powerFactor>
+                <phaseShift>0</phaseShift>
+                <samples>1</samples>
+            </power>
+            <outlets count="12">
+                <outlet id="1">
+                    <status process="none">on</status>
+                    <fuse>ok</fuse>
+                    <autopower>disabled</autopower>
+                    <alert>
+                        <procedure>off</procedure>
+                    </alert>
+                    <power status="ok">
+                        <voltage>231.4</voltage>
+                        <current>0.197</current>
+                        <frequency>50.1</frequency>
+                        <realPower>29</realPower>
+                        <apparentPower>46</apparentPower>
+                        <powerFactor>0.63</powerFactor>
+                        <phaseShift>-67</phaseShift>
+                        <samples>346</samples>
+                    </power>
+                </outlet>
+                <outlet id="2">
+                    <status process="none">on</status>
+                    <fuse>ok</fuse>
+                    <autopower>disabled</autopower>
+                    <alert>
+                        <procedure>off</procedure>
+                    </alert>
+                    <power status="ok">
+                        <voltage>231.4</voltage>
+                        <current>1.049</current>
+                        <frequency>50.1</frequency>
+                        <realPower>238</realPower>
+                        <apparentPower>242</apparentPower>
+                        <powerFactor>0.98</powerFactor>
+                        <phaseShift>-14</phaseShift>
+                        <samples>346</samples>
+                    </power>
+                </outlet>
+                <outlet id="3">
+                    <status process="none">on</status>
+                    <fuse>ok</fuse>
+                    <autopower>disabled</autopower>
+                    <alert>
+                        <procedure>off</procedure>
+                    </alert>
+                    <power status="ok">
+                        <voltage>231.1</voltage>
+                        <current>0.536</current>
+                        <frequency>50</frequency>
+                        <realPower>117</realPower>
+                        <apparentPower>124</apparentPower>
+                        <powerFactor>0.94</powerFactor>
+                        <phaseShift>-30</phaseShift>
+                        <samples>344</samples>
+                    </power>
+                </outlet>
+                <outlet id="4">
+                    <status process="none">on</status>
+                    <fuse>ok</fuse>
+                    <autopower>disabled</autopower>
+                    <alert>
+                        <procedure>off</procedure>
+                    </alert>
+                    <power status="ok">
+                        <voltage>231.1</voltage>
+                        <current>0.578</current>
+                        <frequency>50</frequency>
+                        <realPower>125</realPower>
+                        <apparentPower>134</apparentPower>
+                        <powerFactor>0.93</powerFactor>
+                        <phaseShift>-33</phaseShift>
+                        <samples>344</samples>
+                    </power>
+                </outlet>
+                <outlet id="5">
+                    <status process="none">on</status>
+                    <fuse>ok</fuse>
+                    <autopower>disabled</autopower>
+                    <alert>
+                        <procedure>off</procedure>
+                    </alert>
+                    <power status="ok">
+                        <voltage>232.9</voltage>
+                        <current>0.259</current>
+                        <frequency>50.1</frequency>
+                        <realPower>58</realPower>
+                        <apparentPower>60</apparentPower>
+                        <powerFactor>0.97</powerFactor>
+                        <phaseShift>-16</phaseShift>
+                        <samples>342</samples>
+                    </power>
+                </outlet>
+                <outlet id="6">
+                    <status process="none">on</status>
+                    <fuse>ok</fuse>
+                    <autopower>disabled</autopower>
+                    <alert>
+                        <procedure>off</procedure>
+                    </alert>
+                    <power status="ok">
+                        <voltage>232.9</voltage>
+                        <current>0.511</current>
+                        <frequency>50.1</frequency>
+                        <realPower>113</realPower>
+                        <apparentPower>119</apparentPower>
+                        <powerFactor>0.95</powerFactor>
+                        <phaseShift>-27</phaseShift>
+                        <samples>342</samples>
+                    </power>
+                </outlet>
+                <outlet id="7">
+                    <status process="none">on</status>
+                    <fuse>ok</fuse>
+                    <autopower>disabled</autopower>
+                    <alert>
+                        <procedure>off</procedure>
+                    </alert>
+                    <power status="ok">
+                        <voltage>232.2</voltage>
+                        <current>0.496</current>
+                        <frequency>50</frequency>
+                        <realPower>109</realPower>
+                        <apparentPower>115</apparentPower>
+                        <powerFactor>0.95</powerFactor>
+                        <phaseShift>-23</phaseShift>
+                        <samples>341</samples>
+                    </power>
+                </outlet>
+                <outlet id="8">
+                    <status process="none">on</status>
+                    <fuse>ok</fuse>
+                    <autopower>disabled</autopower>
+                    <alert>
+                        <procedure>off</procedure>
+                    </alert>
+                    <power status="ok">
+                        <voltage>232.2</voltage>
+                        <current>0.556</current>
+                        <frequency>50</frequency>
+                        <realPower>124</realPower>
+                        <apparentPower>129</apparentPower>
+                        <powerFactor>0.96</powerFactor>
+                        <phaseShift>-25</phaseShift>
+                        <samples>341</samples>
+                    </power>
+                </outlet>
+                <outlet id="9">
+                    <status process="none">on</status>
+                    <fuse>ok</fuse>
+                    <autopower>disabled</autopower>
+                    <alert>
+                        <procedure>off</procedure>
+                    </alert>
+                    <power status="ok">
+                        <voltage>233.8</voltage>
+                        <current>0.428</current>
+                        <frequency>50.1</frequency>
+                        <realPower>92</realPower>
+                        <apparentPower>100</apparentPower>
+                        <powerFactor>0.92</powerFactor>
+                        <phaseShift>-22</phaseShift>
+                        <samples>341</samples>
+                    </power>
+                </outlet>
+                <outlet id="10">
+                    <status process="none">on</status>
+                    <fuse>ok</fuse>
+                    <autopower>disabled</autopower>
+                    <alert>
+                        <procedure>off</procedure>
+                    </alert>
+                    <power status="ok">
+                        <voltage>233.8</voltage>
+                        <current>0.398</current>
+                        <frequency>50.1</frequency>
+                        <realPower>80</realPower>
+                        <apparentPower>93</apparentPower>
+                        <powerFactor>0.86</powerFactor>
+                        <phaseShift>-44</phaseShift>
+                        <samples>341</samples>
+                    </power>
+                </outlet>
+                <outlet id="11">
+                    <status process="none">on</status>
+                    <fuse>ok</fuse>
+                    <autopower>disabled</autopower>
+                    <alert>
+                        <procedure>off</procedure>
+                    </alert>
+                    <power status="ok">
+                        <voltage>233.6</voltage>
+                        <current>0</current>
+                        <frequency>50</frequency>
+                        <realPower>0</realPower>
+                        <apparentPower>0</apparentPower>
+                        <powerFactor>0</powerFactor>
+                        <phaseShift>0</phaseShift>
+                        <samples>341</samples>
+                    </power>
+                </outlet>
+                <outlet id="12">
+                    <status process="none">on</status>
+                    <fuse>ok</fuse>
+                    <autopower>disabled</autopower>
+                    <alert>
+                        <procedure>off</procedure>
+                    </alert>
+                    <power status="ok">
+                        <voltage>233.6</voltage>
+                        <current>0</current>
+                        <frequency>50</frequency>
+                        <realPower>0</realPower>
+                        <apparentPower>0</apparentPower>
+                        <powerFactor>0</powerFactor>
+                        <phaseShift>0</phaseShift>
+                        <samples>341</samples>
+                    </power>
+                </outlet>
+            </outlets>
+            <lines count="3">
+                <line id="1">
+                    <status>connected</status>
+                    <identification>off</identification>
+                    <power status="ok">
+                        <voltage>231.2</voltage>
+                        <current>2.36</current>
+                        <frequency>50</frequency>
+                        <realPower>509</realPower>
+                        <apparentPower>546</apparentPower>
+                        <powerFactor>0</powerFactor>
+                        <phaseShift>0</phaseShift>
+                        <samples>1</samples>
+                    </power>
+                </line>
+                <line id="2">
+                    <status>connected</status>
+                    <identification>off</identification>
+                    <power status="ok">
+                        <voltage>232.5</voltage>
+                        <current>1.822</current>
+                        <frequency>50</frequency>
+                        <realPower>404</realPower>
+                        <apparentPower>423</apparentPower>
+                        <powerFactor>0</powerFactor>
+                        <phaseShift>0</phaseShift>
+                        <samples>1</samples>
+                    </power>
+                </line>
+                <line id="3">
+                    <status>connected</status>
+                    <identification>off</identification>
+                    <power status="ok">
+                        <voltage>233.7</voltage>
+                        <current>0.826</current>
+                        <frequency>50</frequency>
+                        <realPower>172</realPower>
+                        <apparentPower>193</apparentPower>
+                        <powerFactor>0</powerFactor>
+                        <phaseShift>0</phaseShift>
+                        <samples>1</samples>
+                    </power>
+                </line>
+            </lines>
+        </clustsafe>
+        <clustsafe id="4">
+            <status>unknown</status>
+        </clustsafe>
+        <clustsafe id="5">
+            <status>unknown</status>
+        </clustsafe>
+        <clustsafe id="6">
+            <status>unknown</status>
+        </clustsafe>
+        <clustsafe id="7">
+            <status>unknown</status>
+        </clustsafe>
+        <clustsafe id="8">
+            <status>unknown</status>
+        </clustsafe>
+    </modules>
+</clustsafeResponse>

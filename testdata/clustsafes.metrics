@@ -1,0 +1,57 @@
+# HELP clustsafe_line_up The status of in input power line in the module.
+# TYPE clustsafe_line_up gauge
+clustsafe_line_up{line="1",module="1"} 1
+clustsafe_line_up{line="1",module="2"} 1
+clustsafe_line_up{line="1",module="3"} 1
+clustsafe_line_up{line="2",module="1"} 1
+clustsafe_line_up{line="2",module="2"} 1
+clustsafe_line_up{line="2",module="3"} 1
+clustsafe_line_up{line="3",module="1"} 1
+clustsafe_line_up{line="3",module="2"} 1
+clustsafe_line_up{line="3",module="3"} 1
+# HELP clustsafe_outlet_up The status of an outlet in the module.
+# TYPE clustsafe_outlet_up gauge
+clustsafe_outlet_up{module="1",outlet="1"} 1
+clustsafe_outlet_up{module="1",outlet="10"} 1
+clustsafe_outlet_up{module="1",outlet="11"} 1
+clustsafe_outlet_up{module="1",outlet="12"} 1
+clustsafe_outlet_up{module="1",outlet="2"} 1
+clustsafe_outlet_up{module="1",outlet="3"} 1
+clustsafe_outlet_up{module="1",outlet="4"} 1
+clustsafe_outlet_up{module="1",outlet="5"} 1
+clustsafe_outlet_up{module="1",outlet="6"} 1
+clustsafe_outlet_up{module="1",outlet="7"} 1
+clustsafe_outlet_up{module="1",outlet="8"} 1
+clustsafe_outlet_up{module="1",outlet="9"} 1
+clustsafe_outlet_up{module="2",outlet="1"} 1
+clustsafe_outlet_up{module="2",outlet="10"} 1
+clustsafe_outlet_up{module="2",outlet="11"} 1
+clustsafe_outlet_up{module="2",outlet="12"} 1
+clustsafe_outlet_up{module="2",outlet="2"} 1
+clustsafe_outlet_up{module="2",outlet="3"} 1
+clustsafe_outlet_up{module="2",outlet="4"} 1
+clustsafe_outlet_up{module="2",outlet="5"} 1
+clustsafe_outlet_up{module="2",outlet="6"} 1
+clustsafe_outlet_up{module="2",outlet="7"} 1
+clustsafe_outlet_up{module="2",outlet="8"} 1
+clustsafe_outlet_up{module="2",outlet="9"} 1
+clustsafe_outlet_up{module="3",outlet="1"} 1
+clustsafe_outlet_up{module="3",outlet="10"} 1
+clustsafe_outlet_up{module="3",outlet="11"} 1
+clustsafe_outlet_up{module="3",outlet="12"} 1
+clustsafe_outlet_up{module="3",outlet="2"} 1
+clustsafe_outlet_up{module="3",outlet="3"} 1
+clustsafe_outlet_up{module="3",outlet="4"} 1
+clustsafe_outlet_up{module="3",outlet="5"} 1
+clustsafe_outlet_up{module="3",outlet="6"} 1
+clustsafe_outlet_up{module="3",outlet="7"} 1
+clustsafe_outlet_up{module="3",outlet="8"} 1
+clustsafe_outlet_up{module="3",outlet="9"} 1
+# HELP clustsafe_power_consumption_watts The real power consumption in Watts.
+# TYPE clustsafe_power_consumption_watts gauge
+clustsafe_power_consumption_watts{module="1"} 872
+clustsafe_power_consumption_watts{module="2"} 1187
+clustsafe_power_consumption_watts{module="3"} 1085
+# HELP clustsafe_up Was the last scrape of ClustSafe successful.
+# TYPE clustsafe_up gauge
+clustsafe_up 1

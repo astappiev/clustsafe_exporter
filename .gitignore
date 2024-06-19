@@ -1,4 +1,16 @@
-.idea
+# Folders
+_obj
+_test
 
-go.sum
-bin/
+*.exe
+dependencies-stamp
+/clustsafe_exporter
+/.build
+/.deps
+/.release
+/.tarballs
+
+# IDEs
+/.vscode
+/.idea
+*.iml

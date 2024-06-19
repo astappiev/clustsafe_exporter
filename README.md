@@ -5,6 +5,16 @@ This is an ClustSafe exporter for [Prometheus](https://prometheus.io).
 
 Read the configuration section to setup dynamic targets, the exporter doesn't have any default metrics of the host it is running on.
 
+## Exposed metrics
+| Metric                            | Meaning                                          | Labels         |
+|-----------------------------------|--------------------------------------------------|----------------|
+| clustsafe_humidity                | The humidity in percentage.                      | sensor         |
+| clustsafe_temperature             | The temperature in Celsius.                      | sensor         |
+| clustsafe_outlet_up               | The status of an outlet in the module.           | module, outlet |
+| clustsafe_line_up                 | The status of in input power line in the module. | module, line   |
+| clustsafe_power_consumption_watts | The real power consumption in Watts.             | module         |
+| clustsafe_up                      | Was the last scrape of ClustSafe successful.     |                |
+
 ## Installation
 
 For most use-cases, simply download [the latest release](https://github.com/astappiev/clustsafe_exporter/releases).
@@ -13,7 +23,7 @@ For most use-cases, simply download [the latest release](https://github.com/asta
 
 You need a Go development environment. Then, simply run `make` to build the executables:
 
-    make
+    make build
 
 ## Running
 

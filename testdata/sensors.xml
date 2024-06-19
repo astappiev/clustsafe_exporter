@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<clustsafeResponse>
+    <sensors count="3">
+        <sensor type="temperature">
+            <status>ok</status>
+            <value>19</value>
+            <alert>none</alert>
+            <shutdown type="basic">
+                <action>none</action>
+                <interval>30</interval>
+            </shutdown>
+            <thresholds type="basic">
+                <minimum alert="critical">5</minimum>
+                <minimum alert="warning">10</minimum>
+                <maximum alert="warning">27</maximum>
+                <maximum alert="critical">33</maximum>
+            </thresholds>
+        </sensor>
+        <sensor type="humidity">
+            <status>ok</status>
+            <value>64</value>
+            <alert>none</alert>
+            <shutdown type="basic">
+                <action>shutdown</action>
+                <interval>120</interval>
+            </shutdown>
+            <thresholds type="basic">
+                <minimum alert="critical">5</minimum>
+                <minimum alert="warning">10</minimum>
+                <maximum alert="warning">80</maximum>
+                <maximum alert="critical">95</maximum>
+            </thresholds>
+        </sensor>
+        <sensor type="dallas">
+            <shutdown type="basic">
+                <action>shutdown</action>
+                <interval>30</interval>
+            </shutdown>
+            <thresholds type="basic">
+                <minimum alert="critical">5</minimum>
+                <minimum alert="warning">10</minimum>
+                <maximum alert="warning">40</maximum>
+                <maximum alert="critical">45</maximum>
+            </thresholds>
+        </sensor>
+        <sensor id="1" type="dallas">
+            <identifier>10a5a670030800d9</identifier>
+            <status>ok</status>
+            <value>35</value>
+            <alert>none</alert>
+            <shutdown type="basic">
+                <action>shutdown</action>
+                <interval>30</interval>
+            </shutdown>
+            <thresholds type="basic">
+                <minimum alert="critical">5</minimum>
+                <minimum alert="warning">10</minimum>
+                <maximum alert="warning">40</maximum>
+                <maximum alert="critical">45</maximum>
+            </thresholds>
+        </sensor>
+    </sensors>
+</clustsafeResponse>
