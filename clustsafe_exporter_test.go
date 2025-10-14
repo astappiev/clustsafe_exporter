@@ -2,11 +2,11 @@ package main
 
 import (
 	"io"
+	"log/slog"
 	"os"
 	"path"
 	"testing"
 
-	"github.com/go-kit/log"
 	"github.com/prometheus/client_golang/prometheus"
 	"github.com/prometheus/client_golang/prometheus/testutil"
 
@@ -37,16 +37,16 @@ func expectMetrics(t *testing.T, c prometheus.Collector, fixture string) {
 }
 
 func TestAll(t *testing.T) {
-	e := collector.NewExporter("all.xml", testConfig(t), log.NewNopLogger())
+	e := collector.NewExporter("all.xml", testConfig(t), slog.New(slog.NewTextHandler(io.Discard, nil)))
 	expectMetrics(t, e, "all.metrics")
 }
 
 func TestClustsafes(t *testing.T) {
-	e := collector.NewExporter("clustsafes.xml", testConfig(t), log.NewNopLogger())
+	e := collector.NewExporter("clustsafes.xml", testConfig(t), slog.New(slog.NewTextHandler(io.Discard, nil)))
 	expectMetrics(t, e, "clustsafes.metrics")
 }
 
 func TestSensors(t *testing.T) {
-	e := collector.NewExporter("sensors.xml", testConfig(t), log.NewNopLogger())
+	e := collector.NewExporter("sensors.xml", testConfig(t), slog.New(slog.NewTextHandler(io.Discard, nil)))
 	expectMetrics(t, e, "sensors.metrics")
 }

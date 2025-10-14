@@ -2,17 +2,16 @@ package main
 
 import (
 	"fmt"
+	"log/slog"
 	"net/http"
 	"os"
 
 	"github.com/alecthomas/kingpin/v2"
-	"github.com/go-kit/log"
-	"github.com/go-kit/log/level"
 	"github.com/prometheus/client_golang/prometheus"
 	versioncollector "github.com/prometheus/client_golang/prometheus/collectors/version"
 	"github.com/prometheus/client_golang/prometheus/promhttp"
-	"github.com/prometheus/common/promlog"
-	"github.com/prometheus/common/promlog/flag"
+	"github.com/prometheus/common/promslog"
+	"github.com/prometheus/common/promslog/flag"
 	"github.com/prometheus/common/version"
 	"github.com/prometheus/exporter-toolkit/web"
 	"github.com/prometheus/exporter-toolkit/web/kingpinflag"
@@ -32,7 +31,7 @@ var (
 	toolkitFlags     = kingpinflag.AddFlags(kingpin.CommandLine, ":9879")
 )
 
-func remoteHandler(config *collector.Config, logger log.Logger) http.HandlerFunc {
+func remoteHandler(config *collector.Config, logger *slog.Logger) http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
 		target := r.URL.Query().Get("target")
 		if target == "" {
@@ -48,22 +47,22 @@ func remoteHandler(config *collector.Config, logger log.Logger) http.HandlerFunc
 }
 
 func main() {
-	promlogConfig := &promlog.Config{}
+	promlogConfig := &promslog.Config{}
 	flag.AddFlags(kingpin.CommandLine, promlogConfig)
 	kingpin.Version(version.Print("clustsafe_exporter"))
 	kingpin.CommandLine.UsageWriter(os.Stdout)
 	kingpin.HelpFlag.Short('h')
 	kingpin.Parse()
-	logger := promlog.New(promlogConfig)
+	logger := promslog.New(promlogConfig)
 
-	level.Info(logger).Log("msg", "Starting clustsafe_exporter", "version", version.Info())
-	level.Info(logger).Log("msg", "Build context", "context", version.BuildContext())
+	logger.Info("Starting clustsafe_exporter", "version", version.Info())
+	logger.Info("Build context", "context", version.BuildContext())
 
 	clustsafeUser := os.Getenv(envVarUser)
 	clustsafePassword := os.Getenv(envVarPassword)
 
 	if len(clustsafeUser) == 0 || len(clustsafePassword) == 0 {
-		level.Error(logger).Log("msg", "No credentials given!", "details", fmt.Sprintf("Please set %s and %s environment variables", envVarUser, envVarPassword))
+		logger.Error("No credentials given!", "details", fmt.Sprintf("Please set %s and %s environment variables", envVarUser, envVarPassword))
 		os.Exit(1)
 	}
 
@@ -95,7 +94,7 @@ func main() {
 		}
 		landingPage, err := web.NewLandingPage(landingConfig)
 		if err != nil {
-			level.Error(logger).Log("err", err)
+			logger.Error("Error creating landing page", "err", err)
 			os.Exit(1)
 		}
 		http.Handle("/", landingPage)
@@ -103,7 +102,7 @@ func main() {
 
 	server := &http.Server{}
 	if err := web.ListenAndServe(server, toolkitFlags, logger); err != nil {
-		level.Error(logger).Log("msg", "Error starting HTTP server", "err", err)
+		logger.Error("Error starting HTTP server", "err", err)
 		os.Exit(1)
 	}
 }

@@ -2,11 +2,11 @@ package collector
 
 import (
 	"encoding/xml"
-	"github.com/go-kit/log"
-	"github.com/go-kit/log/level"
-	"github.com/prometheus/client_golang/prometheus"
+	"log/slog"
 	"os/exec"
 	"sync"
+
+	"github.com/prometheus/client_golang/prometheus"
 )
 
 type Config struct {
@@ -28,10 +28,10 @@ type Exporter struct {
 	lineStatus       *prometheus.Desc
 	powerConsumption *prometheus.Desc
 	status           *prometheus.Desc
-	logger           log.Logger
+	logger           *slog.Logger
 }
 
-func NewExporter(clustsafeHost string, config *Config, logger log.Logger) *Exporter {
+func NewExporter(clustsafeHost string, config *Config, logger *slog.Logger) *Exporter {
 	if config.FetchFn == nil {
 		config.FetchFn = func(host string) ([]byte, error) {
 			return exec.Command(config.Path, "--host", host,
@@ -76,14 +76,14 @@ func (e *Exporter) scrape(ch chan<- prometheus.Metric) (up float64) {
 	out, err := e.fetchFn(e.clustsafeHost)
 
 	if err != nil {
-		level.Error(e.logger).Log("msg", "Can't execute clustsafe command", "err", err)
+		e.logger.Error("Can't execute clustsafe command", "err", err)
 		return 0
 	}
 
 	data, err := e.parseOutput(out)
 	if err != nil {
-		level.Debug(e.logger).Log("msg", "Received clustsafe output", "output", string(out))
-		level.Error(e.logger).Log("msg", "Failed parsing clustsafe output", "err", err)
+		e.logger.Debug("Received clustsafe output", "output", string(out))
+		e.logger.Error("Failed parsing clustsafe output", "err", err)
 		return 0
 	}
 
