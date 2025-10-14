@@ -1,8 +1,7 @@
 go:
   # Whenever the Go version is updated here,
   # .circleci/config.yml should also be updated.
-  version: 1.22
-
+  version: 1.25
 repository:
   path: github.com/astappiev/clustsafe_exporter
 build:
@@ -19,12 +18,5 @@ tarball:
     - LICENSE
 crossbuild:
   platforms:
-    # - aix
-    # - darwin
-    # - dragonfly
-    # - freebsd
-    # - illumos
-    - linux
-    # - netbsd
+    - linux/amd64
     - openbsd/amd64
-    # - windows
