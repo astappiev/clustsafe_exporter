@@ -16,8 +16,7 @@ jobs:
     steps:
     - uses: actions/setup-go@v6
       with:
-        go-version-file: 'go.mod'
-      id: go
+        go-version: 'stable'
 
     - uses: actions/checkout@v5
 
