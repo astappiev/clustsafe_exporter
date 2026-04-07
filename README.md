@@ -37,7 +37,7 @@ Supported parameters include:
 
  - `web.listen-address`: the address/port to listen on (default: `":9879"`)
  - `web.telemetry-path`: the path under which to expose metrics (default: `"/metrics"`)
- - `clustsafe.path`: the ClustSafe command to use (default: `"cw-clustsafe"`, can be `"clustsafeX"` for older version)
+ - `clustsafe.path`: the ClustSafe command to use. If empty, native remote fetching will be used avoiding the need for the CLI tool entirely. (default: empty, can be `"cw-clustsafe"` or `"clustsafeX"` if you prefer using the CLI tool)
  - `clustsafe.command`: the command to execute, can be `clustsafes`, `sensors` or `all` (default: `"all"`)
 
 ### Configuration

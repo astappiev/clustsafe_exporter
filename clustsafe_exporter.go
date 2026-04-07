@@ -19,14 +19,14 @@ import (
 	"github.com/astappiev/clustsafe_exporter/collector"
 )
 
-var (
+const (
 	envVarUser     = "CLUSTSAFE_USER"
 	envVarPassword = "CLUSTSAFE_PASSWORD"
 )
 
 var (
 	metricsPath      = kingpin.Flag("web.telemetry-path", "Path under which to expose metrics.").Default("/metrics").String()
-	clustsafePath    = kingpin.Flag("clustsafe.path", "The ClustSafe command to use.").Default("cw-clustsafe").String()
+	clustsafePath    = kingpin.Flag("clustsafe.path", "The ClustSafe command to use. If empty, remote fetching will be used.").String()
 	clustsafeCommand = kingpin.Flag("clustsafe.command", "The command to execute, can be `clustsafes`, `sensors` or `all`.").Default("all").String()
 	toolkitFlags     = kingpinflag.AddFlags(kingpin.CommandLine, ":9879")
 )
@@ -61,7 +61,7 @@ func main() {
 	clustsafeUser := os.Getenv(envVarUser)
 	clustsafePassword := os.Getenv(envVarPassword)
 
-	if len(clustsafeUser) == 0 || len(clustsafePassword) == 0 {
+	if clustsafeUser == "" || clustsafePassword == "" {
 		logger.Error("No credentials given!", "details", fmt.Sprintf("Please set %s and %s environment variables", envVarUser, envVarPassword))
 		os.Exit(1)
 	}
@@ -71,6 +71,10 @@ func main() {
 		Command:  *clustsafeCommand,
 		User:     clustsafeUser,
 		Password: clustsafePassword,
+	}
+
+	if *clustsafePath == "" {
+		config.FetchFn = collector.NewRemoteFetcher(config.User, config.Password, config.Command)
 	}
 
 	prometheus.MustRegister(versioncollector.NewCollector("clustsafe_exporter"))

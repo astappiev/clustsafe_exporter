@@ -4,7 +4,6 @@ import (
 	"encoding/xml"
 	"log/slog"
 	"os/exec"
-	"sync"
 
 	"github.com/prometheus/client_golang/prometheus"
 )
@@ -18,7 +17,6 @@ type Config struct {
 }
 
 type Exporter struct {
-	mutex         sync.RWMutex
 	clustsafeHost string
 	fetchFn       func(string) ([]byte, error)
 
@@ -66,12 +64,6 @@ func (e *Exporter) Describe(ch chan<- *prometheus.Desc) {
 	ch <- e.status
 }
 
-func (e *Exporter) parseOutput(data []byte) (ClustsafeSchema, error) {
-	var response ClustsafeSchema
-	err := xml.Unmarshal(data, &response)
-	return response, err
-}
-
 func (e *Exporter) scrape(ch chan<- prometheus.Metric) (up float64) {
 	out, err := e.fetchFn(e.clustsafeHost)
 
@@ -80,44 +72,49 @@ func (e *Exporter) scrape(ch chan<- prometheus.Metric) (up float64) {
 		return 0
 	}
 
-	data, err := e.parseOutput(out)
-	if err != nil {
+	var data ClustsafeSchema
+	if err := xml.Unmarshal(out, &data); err != nil {
 		e.logger.Debug("Received clustsafe output", "output", string(out))
 		e.logger.Error("Failed parsing clustsafe output", "err", err)
 		return 0
 	}
 
 	for _, module := range data.Modules.Clustsafe {
-		if module.Status == "connected" {
-			ch <- prometheus.MustNewConstMetric(e.powerConsumption, prometheus.GaugeValue, module.Power.RealPower, module.ID)
+		if module.Status != "connected" {
+			continue
+		}
 
-			for _, outlet := range module.Outlets.Outlet {
-				var status float64
-				if outlet.Status == "on" {
-					status = 1.0
-				}
+		ch <- prometheus.MustNewConstMetric(e.powerConsumption, prometheus.GaugeValue, module.Power.RealPower, module.ID)
 
-				ch <- prometheus.MustNewConstMetric(e.outletStatus, prometheus.GaugeValue, status, module.ID, outlet.ID)
+		for _, outlet := range module.Outlets.Outlet {
+			var status float64
+			if outlet.Status == "on" {
+				status = 1.0
 			}
 
-			for _, line := range module.Lines.Line {
-				var status float64
-				if line.Status == "connected" {
-					status = 1.0
-				}
+			ch <- prometheus.MustNewConstMetric(e.outletStatus, prometheus.GaugeValue, status, module.ID, outlet.ID)
+		}
 
-				ch <- prometheus.MustNewConstMetric(e.lineStatus, prometheus.GaugeValue, status, module.ID, line.ID)
+		for _, line := range module.Lines.Line {
+			var status float64
+			if line.Status == "connected" {
+				status = 1.0
 			}
+
+			ch <- prometheus.MustNewConstMetric(e.lineStatus, prometheus.GaugeValue, status, module.ID, line.ID)
 		}
 	}
 
 	for _, sensor := range data.Sensors.Sensor {
-		if sensor.Type == "humidity" {
+		switch sensor.Type {
+		case "humidity":
 			ch <- prometheus.MustNewConstMetric(e.humidity, prometheus.GaugeValue, sensor.Value, "humidity")
-		} else if sensor.Type == "temperature" {
+		case "temperature":
 			ch <- prometheus.MustNewConstMetric(e.temperature, prometheus.GaugeValue, sensor.Value, "temperature")
-		} else if sensor.Type == "dallas" && sensor.Value > 0 {
-			ch <- prometheus.MustNewConstMetric(e.temperature, prometheus.GaugeValue, sensor.Value, "dallas"+sensor.ID)
+		case "dallas":
+			if sensor.Value > 0 {
+				ch <- prometheus.MustNewConstMetric(e.temperature, prometheus.GaugeValue, sensor.Value, "dallas"+sensor.ID)
+			}
 		}
 	}
 
@@ -125,9 +122,6 @@ func (e *Exporter) scrape(ch chan<- prometheus.Metric) (up float64) {
 }
 
 func (e *Exporter) Collect(ch chan<- prometheus.Metric) {
-	e.mutex.Lock() // To protect metrics from concurrent collects.
-	defer e.mutex.Unlock()
-
 	up := e.scrape(ch)
 
 	ch <- prometheus.MustNewConstMetric(e.status, prometheus.GaugeValue, up)
