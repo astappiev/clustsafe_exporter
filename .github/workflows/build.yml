@@ -18,7 +18,7 @@ jobs:
       with:
         go-version: 'stable'
 
-    - uses: actions/checkout@v5
+    - uses: actions/checkout@v6
 
     - run: make style
     - run: make vet

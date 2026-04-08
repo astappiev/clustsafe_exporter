@@ -6,18 +6,29 @@ on:
     tags:
       - '*.*.*'
 
+env:
+  REGISTRY: ghcr.io
+  IMAGE_NAME: ${{ github.repository }}
+  VERSION: ${{ github.ref_name }}
+
 jobs:
   build:
     name: Build and upload artifacts
+
+    permissions:
+      contents: read
+      packages: write
+
     runs-on: ubuntu-latest
-    env:
-      VERSION: ${{ github.ref_name }}
+
     steps:
-      - uses: actions/setup-go@v6
+      - name: Set up Go
+        uses: actions/setup-go@v6
         with:
           go-version: 'stable'
 
-      - uses: actions/checkout@v5
+      - name: Checkout repository
+        uses: actions/checkout@v6
 
       - name: Promu - Crossbuild
         run: make crossbuild
@@ -33,3 +44,24 @@ jobs:
         with:
           files: |
             .tarballs/*
+
+      - name: Log in to the Container registry
+        uses: docker/login-action@v4
+        with:
+          registry: ${{ env.REGISTRY }}
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Extract metadata (tags, labels) for Docker
+        id: meta
+        uses: docker/metadata-action@v6
+        with:
+          images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
+
+      - name: Build and push Docker image
+        uses: docker/build-push-action@v7
+        with:
+          context: .
+          push: true
+          tags: ${{ steps.meta.outputs.tags }}
+          labels: ${{ steps.meta.outputs.labels }}
