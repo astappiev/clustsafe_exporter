@@ -16,7 +16,7 @@ jobs:
     name: Build and upload artifacts
 
     permissions:
-      contents: read
+      contents: write
       packages: write
 
     runs-on: ubuntu-latest
